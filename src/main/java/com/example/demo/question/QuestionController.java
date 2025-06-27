@@ -47,7 +47,7 @@ public class QuestionController {
 		return "question_form";
 	}
 
-	@PreAuthorize("hasRole('ROLE_ADMIN')")
+	@PreAuthorize("isAuthenticated()")
 	@PostMapping("/create")
 	public String questionCreate(@Valid QuestionForm questionForm, BindingResult bindingResult, Principal principal) {
 		if (bindingResult.hasErrors()) {
